@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Resizer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-crop-alt"></i> Image Resizer</h1>
+            <p>Upload, resize, and download your images easily</p>
+        </header>
+
+        <main>
+            <div class="upload-container" id="upload-area">
+                <div class="upload-content" id="upload-content">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>Drag & drop an image here or</p>
+                    <button id="select-image-btn" class="btn primary-btn">Select Image</button>
+                    <input type="file" id="file-input" accept="image/*" hidden>
+                </div>
+            </div>
+
+            <div class="editor-container" id="editor-container" style="display: none;">
+                <div class="preview-container">
+                    <h3>Preview</h3>
+                    <div class="image-preview">
+                        <img id="preview-image" src="" alt="Preview">
+                    </div>
+                    <div class="image-info">
+                        <p>Original Size: <span id="original-size">0 KB</span></p>
+                        <p>Original Dimensions: <span id="original-dimensions">0 x 0</span></p>
+                    </div>
+                </div>
+
+                <div class="resize-controls">
+                    <h3>Resize Options</h3>
+                    <div class="control-group">
+                        <label for="width-input">Width (px):</label>
+                        <input type="number" id="width-input" min="1" placeholder="Width">
+                    </div>
+                    <div class="control-group">
+                        <label for="height-input">Height (px):</label>
+                        <input type="number" id="height-input" min="1" placeholder="Height">
+                    </div>
+                    <div class="control-group checkbox">
+                        <input type="checkbox" id="maintain-aspect-ratio" checked>
+                        <label for="maintain-aspect-ratio">Maintain aspect ratio</label>
+                    </div>
+                    <div class="control-group">
+                        <label for="quality-input">Quality:</label>
+                        <input type="range" id="quality-input" min="1" max="100" value="90">
+                        <span id="quality-value">90%</span>
+                    </div>
+                    <div class="control-group">
+                        <label for="format-select">Format:</label>
+                        <select id="format-select">
+                            <option value="jpeg">JPEG</option>
+                            <option value="png">PNG</option>
+                            <option value="webp">WebP</option>
+                        </select>
+                    </div>
+                    <div class="buttons-group">
+                        <button id="resize-btn" class="btn primary-btn">Resize</button>
+                        <button id="download-btn" class="btn secondary-btn" disabled>Download</button>
+                        <button id="reset-btn" class="btn tertiary-btn">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div id="result-container" class="result-container" style="display: none;">
+            <h3>Resized Image</h3>
+            <div class="result-image-container">
+                <img id="result-image" src="" alt="Resized Image">
+            </div>
+            <div class="image-info">
+                <p>New Size: <span id="new-size">0 KB</span></p>
+                <p>New Dimensions: <span id="new-dimensions">0 x 0</span></p>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2023 Image Resizer | Created with <i class="fas fa-heart"></i></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
